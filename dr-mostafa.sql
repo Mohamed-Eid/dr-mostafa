@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2020 at 02:23 PM
+-- Generation Time: Dec 02, 2020 at 02:49 PM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -20,6 +20,56 @@ SET time_zone = "+00:00";
 --
 -- Database: `dr-mostafa`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `members`
+--
+
+CREATE TABLE `members` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `facebook` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `twitter` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `linked_in` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `members`
+--
+
+INSERT INTO `members` (`id`, `phone`, `email`, `facebook`, `twitter`, `linked_in`, `image`, `created_at`, `updated_at`) VALUES
+(1, '01000000000', 'test@test.com', 'https://www.facebook.com/', 'https://twitter.com/login?username_or_email=', 'https://www.linkedin.com/', 'ZrJzFPC2RHpOTtHuAlExyE2tyeKjTLL4W0xl0o6U.jpeg', '2020-12-02 11:08:45', '2020-12-02 11:25:03');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `member_translations`
+--
+
+CREATE TABLE `member_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `member_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `job` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `locale` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `member_translations`
+--
+
+INSERT INTO `member_translations` (`id`, `member_id`, `name`, `job`, `description`, `locale`, `created_at`, `updated_at`) VALUES
+(1, 1, 'اسم123', 'طبيب', '<p>وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;</p>', 'ar', '2020-12-02 11:08:45', '2020-12-02 11:25:03'),
+(2, 1, 'name', 'doctor', '<p>desc&nbsp;desc&nbsp;desc&nbsp;desc&nbsp;desc&nbsp;desc&nbsp;desc&nbsp;</p>', 'en', '2020-12-02 11:08:45', '2020-12-02 11:08:45');
 
 -- --------------------------------------------------------
 
@@ -101,7 +151,11 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (155, '2020_11_18_114517_create_services_table', 31),
 (156, '2020_11_19_111157_create_contact_messages_table', 32),
 (157, '2020_11_19_111412_create_subscribers_table', 32),
-(158, '2020_12_01_132251_create_setting_translations_table', 33);
+(158, '2020_12_01_132251_create_setting_translations_table', 33),
+(159, '2020_12_02_110248_create_services_table', 34),
+(160, '2020_12_02_110551_create_service_translations_table', 34),
+(161, '2020_12_02_124039_create_members_table', 35),
+(162, '2020_12_02_124048_create_member_translations_table', 35);
 
 -- --------------------------------------------------------
 
@@ -201,6 +255,51 @@ INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `services`
+--
+
+CREATE TABLE `services` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `icon` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `services` (`id`, `icon`, `image`, `created_at`, `updated_at`) VALUES
+(2, '4yMxk0GCFh34aZIHJBV9Yc9oycq0UGZEI1tlkJS0.png', 'sRTRk8Sv5G4bm0bjMklmIZW4ZQQJ7i9s3zGRVEZ2.jpeg', '2020-12-02 10:30:31', '2020-12-02 10:30:31');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `service_translations`
+--
+
+CREATE TABLE `service_translations` (
+  `id` int(10) UNSIGNED NOT NULL,
+  `service_id` int(10) UNSIGNED NOT NULL,
+  `title` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `locale` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `service_translations`
+--
+
+INSERT INTO `service_translations` (`id`, `service_id`, `title`, `description`, `locale`, `created_at`, `updated_at`) VALUES
+(3, 2, 'خدمة 2', '<p>وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;وصف&nbsp;</p>', 'ar', '2020-12-02 10:30:31', '2020-12-02 10:30:31'),
+(4, 2, 'Service 2', '<p>description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;description&nbsp;</p>', 'en', '2020-12-02 10:30:32', '2020-12-02 10:30:32');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `settings`
 --
 
@@ -225,7 +324,27 @@ INSERT INTO `settings` (`id`, `field_name`, `key`, `value`, `details`, `image`, 
 (26, 'لغة الموقع الاساسية', 'default_lang', 'en', 'ar:العربية|en:الانجليزية', NULL, 'select', 'general', NULL, '2020-12-01 12:27:37'),
 (27, 'لوجو الموقع', 'logo', NULL, NULL, 'oz0eVqcu2b5Pv5VhkIWrXEQVuHzVQESEZjggV82h.png', 'image', 'general', NULL, '2020-12-01 12:55:39'),
 (28, 'أيقونة الموقع', 'icon', NULL, NULL, 'XAsaZxSyrqXAxN8RJc6hXwNhJywbbWjB0KzuOVwu.png', 'image', 'general', NULL, '2020-12-01 12:58:59'),
-(29, 'صورة المشاركة الاجتماعية', 'share_img', NULL, NULL, 'M8Lf5iQR0OrMxotcHyEDt9xWONcunctRO8H76aci.png', 'image', 'general', NULL, '2020-12-01 12:58:59');
+(29, 'صورة المشاركة الاجتماعية', 'share_img', NULL, NULL, 'M8Lf5iQR0OrMxotcHyEDt9xWONcunctRO8H76aci.png', 'image', 'general', NULL, '2020-12-01 12:58:59'),
+(30, 'أسم الموقع', 'site_name', NULL, NULL, NULL, 'text', 'seo', NULL, NULL),
+(31, 'كلمات دلاليه', 'key_words', NULL, NULL, NULL, 'text', 'seo', NULL, NULL),
+(32, 'وصف', 'description', NULL, NULL, NULL, 'text', 'seo', NULL, NULL),
+(33, 'رقم الهاتف', 'phone', '01275262482', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
+(37, 'رقم الهاتف', 'phone', NULL, NULL, NULL, 'text', 'contact', NULL, NULL),
+(38, 'رقم الهاتف الارض', 'home_line', '05022664', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
+(39, 'واتس اب', 'whatsapp', '01015960452', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
+(40, 'فاكس', 'fax', '123456', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
+(41, 'البريد الالكتروني', 'email', 'test@test.com', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
+(42, 'العنوان', 'address', NULL, NULL, NULL, 'text', 'contact', NULL, NULL),
+(43, 'الخريطه', 'map', '<iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3418.9582766687977!2d31.375416185002408!3d31.027412078421893!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14f79dcbe88f6c25%3A0x859ee8ea1a8da4ae!2z2LTYsdmD2Kkg2KrZg9mG2Ygg2YXYtdixINmE2YTYqNix2YXYrNmK2KfYqiDZiNiq2LXZhdmK2YUg2KfZhNmF2YjYp9mC2Lk!5e0!3m2!1sar!2seg!4v1606898370313!5m2!1sar!2seg\" width=\"600\" height=\"450\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\" aria-hidden=\"false\" tabindex=\"0\"></iframe>', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
+(44, 'فيس بوك', 'facebook', 'https://www.facebook.com/', NULL, NULL, 'text', 'social_media', NULL, '2020-12-02 08:48:35'),
+(45, 'لينكد إن', 'linked_id', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
+(46, 'تويتر', 'twitter', 'https://twitter.com/i/sms_login', NULL, NULL, 'text', 'social_media', NULL, '2020-12-02 08:48:35'),
+(47, 'جوجل بلس', 'google_plus', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
+(48, 'فيس بوك', 'facebook', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
+(49, 'انستجرام', 'instagram', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
+(50, 'بينتيريست', 'pinterest', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
+(51, 'RSS', 'rss', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
+(52, 'سكايب', 'skype', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -241,6 +360,20 @@ CREATE TABLE `setting_translations` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `setting_translations`
+--
+
+INSERT INTO `setting_translations` (`id`, `setting_id`, `translated_value`, `locale`, `created_at`, `updated_at`) VALUES
+(1, 30, 'د مصطفي غنيم', 'ar', '2020-12-02 08:08:38', '2020-12-02 08:08:38'),
+(2, 30, 'Dr mostafa', 'en', '2020-12-02 08:08:38', '2020-12-02 08:08:38'),
+(3, 31, 'كلمة, كلمة, كلمة', 'ar', '2020-12-02 08:08:38', '2020-12-02 08:08:38'),
+(4, 31, 'word, word,', 'en', '2020-12-02 08:08:38', '2020-12-02 08:08:38'),
+(5, 32, 'وصف وصف وصف وصف وصف', 'ar', '2020-12-02 08:08:38', '2020-12-02 08:08:38'),
+(6, 32, 'descirpiondescirpiondescirpiondescirpiondescirpion', 'en', '2020-12-02 08:08:38', '2020-12-02 08:08:38'),
+(7, 42, 'عنوان', 'ar', '2020-12-02 08:41:01', '2020-12-02 08:41:01'),
+(8, 42, 'address', 'en', '2020-12-02 08:41:01', '2020-12-02 08:41:01');
 
 -- --------------------------------------------------------
 
@@ -276,6 +409,20 @@ INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `image`, `email_v
 --
 -- Indexes for dumped tables
 --
+
+--
+-- Indexes for table `members`
+--
+ALTER TABLE `members`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `member_translations`
+--
+ALTER TABLE `member_translations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `member_translations_member_id_locale_unique` (`member_id`,`locale`),
+  ADD KEY `member_translations_locale_index` (`locale`);
 
 --
 -- Indexes for table `migrations`
@@ -325,6 +472,20 @@ ALTER TABLE `role_user`
   ADD KEY `role_user_role_id_foreign` (`role_id`);
 
 --
+-- Indexes for table `services`
+--
+ALTER TABLE `services`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `service_translations`
+--
+ALTER TABLE `service_translations`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `service_translations_service_id_locale_unique` (`service_id`,`locale`),
+  ADD KEY `service_translations_locale_index` (`locale`);
+
+--
 -- Indexes for table `settings`
 --
 ALTER TABLE `settings`
@@ -350,10 +511,22 @@ ALTER TABLE `users`
 --
 
 --
+-- AUTO_INCREMENT for table `members`
+--
+ALTER TABLE `members`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `member_translations`
+--
+ALTER TABLE `member_translations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=159;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=163;
 
 --
 -- AUTO_INCREMENT for table `permissions`
@@ -368,16 +541,28 @@ ALTER TABLE `roles`
   MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
+-- AUTO_INCREMENT for table `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `service_translations`
+--
+ALTER TABLE `service_translations`
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=53;
 
 --
 -- AUTO_INCREMENT for table `setting_translations`
 --
 ALTER TABLE `setting_translations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -388,6 +573,18 @@ ALTER TABLE `users`
 --
 -- Constraints for dumped tables
 --
+
+--
+-- Constraints for table `member_translations`
+--
+ALTER TABLE `member_translations`
+  ADD CONSTRAINT `member_translations_member_id_foreign` FOREIGN KEY (`member_id`) REFERENCES `members` (`id`) ON DELETE CASCADE;
+
+--
+-- Constraints for table `service_translations`
+--
+ALTER TABLE `service_translations`
+  ADD CONSTRAINT `service_translations_service_id_foreign` FOREIGN KEY (`service_id`) REFERENCES `services` (`id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `setting_translations`
