@@ -23,13 +23,6 @@
 
                 <!-- Tab panes -->
                 <div class="tab-content">
-                    @push('styles')
-                    <style>
-                        form p {
-                                text-align: right;
-                            }
-                    </style>
-                    @endpush
                     <!-- site settings -->
                     @include('dashboard.basic_settings.includes.site')
                     <!--#END# site settings -->

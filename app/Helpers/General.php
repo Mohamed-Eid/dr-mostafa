@@ -53,7 +53,7 @@ function is_current_route($route){
 function get_snippts($text , $wordCount = 30){
     $text = strip_tags($text);
     //return $text;
-    return implode( 
+    return htmlspecialchars_decode(implode( 
         '', 
         array_slice( 
           preg_split(
@@ -65,7 +65,7 @@ function get_snippts($text , $wordCount = 30){
           0,
           $wordCount*2-1
         )
-      );
+      ));
 }
 
  

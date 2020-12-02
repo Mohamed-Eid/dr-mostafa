@@ -31,49 +31,36 @@
                             <span>بيانات الأمان</span>
                         </a>
                     </li>
+                    
                     <li class="{{ is_current_route('dashboard.basic_settings') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.basic_settings') }}">
                             <i class="material-icons">settings</i>
                             <span>إعدادات الموقع</span>
                         </a>
                     </li>
-                    <li>
+                    
+                    {{-- <li>
                         <a href="pages.php">
                             <i class="material-icons">widgets </i>
                             <span>إدارة الصفحات</span>
                         </a>
-                    </li>
+                    </li> --}}
+                    
                     <li>
                         <a href="teamwork.php">
                             <i class="material-icons">account_box</i>
                             <span>إدارة فريق العمل</span>
                         </a>
                     </li>
+
                     <li>
-                        <a href="branches.php">
-                            <i class="material-icons">map</i>
-                            <span>إدارة الفروع </span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="portfolio.php">
-                            <i class="material-icons">work</i>
-                            <span>أعمالنا</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="products.php">
-                            <i class="material-icons">toys</i>
-                            <span>منتجاتنا</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="services.php">
-                            <i class="material-icons">view_carousel</i>
+                        <li class="{{ is_current_route('dashboard.services.index') ? 'active' : ''  }}">
+                            <a href="{{  route('dashboard.services.index') }}">
                             <span>خدماتنا</span>
                         </a>
                     </li>
-                    <li>
+                    
+                    {{-- <li>
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                             <i class="material-icons">picture_in_picture</i>
                             <span>إعدادات الظهور</span>
@@ -150,7 +137,7 @@
                             <i class="material-icons">library_books</i>
                             <span>إدارة الطلبات</span>
                         </a>
-                    </li>
+                    </li> --}}
                     
                    
                 </ul>

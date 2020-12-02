@@ -295,6 +295,7 @@
          //TinyMCE
          tinymce.init({
              selector: "textarea#tinymce",
+             directionality : 'ltr',
              theme: "modern",
              height: 150,
              plugins: [
@@ -308,7 +309,7 @@
              image_advtab: true
          });
          tinymce.suffix = ".min";
-         tinyMCE.baseURL = 'Assets/plugins/tinymce';
+         tinyMCE.baseURL = "{{asset('Assets/plugins/tinymce')}}";
      });
 
  </script>

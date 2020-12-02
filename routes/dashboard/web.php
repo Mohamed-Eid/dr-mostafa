@@ -27,10 +27,12 @@ Route::group(
                 Route::get('/', function () {
                     return view('dashboard.index');
                 });
-
                 Route::get('basic_settings','SettingController@index')->name('basic_settings');
                 Route::put('/setting/edit','SettingController@update_edit')->name('setting.update_edit');
                 Route::get('/delete_image/{setting}','SettingController@delete_setting_image')->name('setting.delete_image');
+
+
+                Route::resource('services', 'ServiceController');
 
             });
         });//end of dashboard routes

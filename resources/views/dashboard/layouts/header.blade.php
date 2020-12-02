@@ -41,6 +41,11 @@
     
     <!-- AdminBSB Themes. You can choose a theme from css/themes instead of get all themes -->
     <link href="{{ asset('Assets/css/themes/theme-dark-blue.css') }}" rel="stylesheet" />
+    <style>
+        form p {
+                text-align: right;
+            }
+    </style>
     
     @stack('styles')
 </head>
