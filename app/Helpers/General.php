@@ -43,6 +43,12 @@ function get_video_id($link){
 
 
 
+function is_current_route($route){
+    if(request()->route()->getName() == $route)
+        return true;
+    return false;
+}
+
 
 function get_snippts($text , $wordCount = 30){
     $text = strip_tags($text);

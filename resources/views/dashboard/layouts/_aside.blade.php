@@ -31,8 +31,8 @@
                             <span>بيانات الأمان</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="site-settings.php">
+                    <li class="{{ is_current_route('dashboard.basic_settings') ? 'active' : ''  }}">
+                        <a href="{{  route('dashboard.basic_settings') }}">
                             <i class="material-icons">settings</i>
                             <span>إعدادات الموقع</span>
                         </a>
