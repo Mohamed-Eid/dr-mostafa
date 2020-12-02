@@ -15,6 +15,19 @@ class CreateMemberTranslationsTable extends Migration
     {
         Schema::create('member_translations', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('member_id')->unsigned();
+
+            $table->string('name');
+            
+            $table->string('job');
+
+            $table->text('description');
+
+            $table->string('locale')->index();
+
+            $table->unique(['member_id','locale']);
+            $table->foreign('member_id')->references('id')->on('members')->onDelete('cascade');
+            
             $table->timestamps();
         });
     }

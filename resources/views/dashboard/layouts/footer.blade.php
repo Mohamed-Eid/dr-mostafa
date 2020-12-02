@@ -1,5 +1,5 @@
  <!-- Jquery Core Js -->
-    <script src="{{ asset('Assets/plugins/jquery/jquery.min.js') }}"></script>
+ <script src="{{ asset('Assets/plugins/jquery/jquery.min.js') }}"></script>
 
  <!-- Bootstrap Core Js -->
  <script src="{{ asset('Assets/plugins/bootstrap/js/bootstrap.js') }}"></script>
@@ -22,20 +22,37 @@
  @include('partials._session')
  <!-- Datatable-->
  <script src="{{ asset('Assets/plugins/jquery-datatable/jquery.dataTables.ar.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/jszip.min.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}"></script>
- <script src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}"></script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/skin/bootstrap/js/dataTables.bootstrap.js') }}">
+ </script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/dataTables.buttons.min.js') }}">
+ </script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/buttons.flash.min.js') }}">
+ </script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/jszip.min.js') }}">
+ </script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/pdfmake.min.js') }}">
+ </script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/vfs_fonts.js') }}">
+ </script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/buttons.html5.min.js') }}">
+ </script>
+ <script
+     src="{{ asset('Assets/plugins/jquery-datatable/extensions/export/buttons.print.min.js') }}">
+ </script>
 
 
 
  <!-- Custom Js -->
  <script src="{{ asset('Assets/js/admin.js') }}"></script>
- {{-- <script src="{{ asset('Assets/js/pages/ui/dialogs.js') }}"></script> --}}
+ {{-- <script src="{{ asset('Assets/js/pages/ui/dialogs.js') }}">
+ </script> --}}
  <script src="{{ asset('Assets/js/pages/ui/dialogs-ar.js') }}"></script>
 
  <script src="{{ asset('Assets/js/pages/tables/jquery-datatable.js') }}"></script>
@@ -47,8 +64,10 @@
 
 
  <!-- file input js -->
- <script src="{{ asset('Assets/plugins/bootstrap-fileinput/js/fileinput.js') }}" type="text/javascript"></script>
- <script src="{{ asset('Assets/plugins/bootstrap-fileinput/js/locales/ar.js') }}" type="text/javascript"></script>
+ <script src="{{ asset('Assets/plugins/bootstrap-fileinput/js/fileinput.js') }}"
+     type="text/javascript"></script>
+ <script src="{{ asset('Assets/plugins/bootstrap-fileinput/js/locales/ar.js') }}"
+     type="text/javascript"></script>
 
 
 
@@ -295,7 +314,7 @@
          //TinyMCE
          tinymce.init({
              selector: "textarea#tinymce",
-             directionality : 'ltr',
+             directionality: 'ltr',
              theme: "modern",
              height: 150,
              plugins: [
@@ -309,7 +328,7 @@
              image_advtab: true
          });
          tinymce.suffix = ".min";
-         tinyMCE.baseURL = "{{asset('Assets/plugins/tinymce')}}";
+         tinyMCE.baseURL = "{{ asset('Assets/plugins/tinymce') }}";
      });
 
  </script>
@@ -388,58 +407,58 @@
 
  </script>
 
-<script>
-    $('.delete_item_in_form').click(function (e) {
+ <script>
+     $('.delete_item_in_form').click(function (e) {
 
-        var that = $(this)
+         var that = $(this)
 
-        e.preventDefault();
-
-
-        swal({
-        title: "هل أنت متأكد؟",
-        text: "لن تستطيع إستعادة تلك البيانات أو أى بيانات مرتبطة بها مرة أخرى!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "نعم, احذف البيانات!",
-        cancelButtonText: "لا, الغِ الأمر!",
-        closeOnConfirm: false,
-        closeOnCancel: false
-        }, function (isConfirm) {
-            if (isConfirm) {
-                that.closest('form').submit();
-            } else {
-                swal("تم الإلغاء", "لا تقلق كافة بياناتك فى أمان ولم يتم حذفها بعد :)", "error");
-            }
-        });
-
-    });//end of delete
+         e.preventDefault();
 
 
-    function showConfirmMessageOnDelete(url) {
-    swal({
-        title: "هل أنت متأكد؟",
-        text: "لن تستطيع إستعادة تلك البيانات أو أى بيانات مرتبطة بها مرة أخرى!",
-        type: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#DD6B55",
-        confirmButtonText: "نعم, احذف البيانات!",
-        cancelButtonText: "لا, الغِ الأمر!",
-        closeOnConfirm: false,
-        closeOnCancel: false
-    }, function (isConfirm) {
-        if (isConfirm) {
-            window.location = url
-        } else {
-            swal("تم الإلغاء", "لا تقلق كافة بياناتك فى أمان ولم يتم حذفها بعد :)", "error");
-        }
-    });
-}
+         swal({
+             title: "هل أنت متأكد؟",
+             text: "لن تستطيع إستعادة تلك البيانات أو أى بيانات مرتبطة بها مرة أخرى!",
+             type: "warning",
+             showCancelButton: true,
+             confirmButtonColor: "#DD6B55",
+             confirmButtonText: "نعم, احذف البيانات!",
+             cancelButtonText: "لا, الغِ الأمر!",
+             closeOnConfirm: false,
+             closeOnCancel: false
+         }, function (isConfirm) {
+             if (isConfirm) {
+                 that.closest('form').submit();
+             } else {
+                 swal("تم الإلغاء", "لا تقلق كافة بياناتك فى أمان ولم يتم حذفها بعد :)", "error");
+             }
+         });
 
-</script>
+     }); //end of delete
 
-@stack('scripts')
+
+     function showConfirmMessageOnDelete(url) {
+         swal({
+             title: "هل أنت متأكد؟",
+             text: "لن تستطيع إستعادة تلك البيانات أو أى بيانات مرتبطة بها مرة أخرى!",
+             type: "warning",
+             showCancelButton: true,
+             confirmButtonColor: "#DD6B55",
+             confirmButtonText: "نعم, احذف البيانات!",
+             cancelButtonText: "لا, الغِ الأمر!",
+             closeOnConfirm: false,
+             closeOnCancel: false
+         }, function (isConfirm) {
+             if (isConfirm) {
+                 window.location = url
+             } else {
+                 swal("تم الإلغاء", "لا تقلق كافة بياناتك فى أمان ولم يتم حذفها بعد :)", "error");
+             }
+         });
+     }
+
+ </script>
+
+ @stack('scripts')
 
  </body>
 

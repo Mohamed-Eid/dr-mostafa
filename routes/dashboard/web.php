@@ -33,6 +33,8 @@ Route::group(
 
 
                 Route::resource('services', 'ServiceController');
+                Route::resource('members', 'TeamController');
+
 
             });
         });//end of dashboard routes
