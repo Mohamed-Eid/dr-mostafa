@@ -1,0 +1,3 @@
+=====> Edit site Colors 
+=====> Use The New Logo
+=====> Remove upperBar
