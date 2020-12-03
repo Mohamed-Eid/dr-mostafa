@@ -20,7 +20,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#websiteurl">
+                        <a href="{{ route('frontend.index') }}">
                             <i class="material-icons">visibility</i>
                             <span>معاينة الموقع</span>
                         </a>
@@ -30,7 +30,7 @@
                             <i class="material-icons">person</i>
                             <span>بيانات الأمان</span>
                         </a>
-                    </li>
+                    </li> 
                     
                     <li class="{{ is_current_route('dashboard.basic_settings') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.basic_settings') }}">
@@ -56,98 +56,69 @@
                     <li>
                         <li class="{{ is_current_route('dashboard.services.index') ? 'active' : ''  }}">
                             <a href="{{  route('dashboard.services.index') }}">
+                                <i class="material-icons">account_box</i>
                             <span>خدماتنا</span>
                         </a>
                     </li>
 
                     <li>
                         <li class="{{ is_current_route('dashboard.videos.index') ? 'active' : ''  }}">
-                            <a href="{{  route('dashboard.services.index') }}">
+                            <a href="{{  route('dashboard.videos.index') }}">
+                                <i class="material-icons">account_box</i>
                                 <span>مكتبة الفيديو</span>
                             </a>
                     </li>
+
+                    <li>
+                        <li class="{{ is_current_route('dashboard.images.index') ? 'active' : ''  }}">
+                            <a href="{{  route('dashboard.images.index') }}">
+                                <i class="material-icons">account_box</i>
+                                <span>مكتبة الصور</span>
+                            </a>
+                    </li>
                     
-                    {{-- <li>
+                    <li>
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                             <i class="material-icons">picture_in_picture</i>
                             <span>إعدادات الظهور</span>
                         </a>
                         <ul class="ml-menu m-r-30" style="display: none;">
                             <li>
-                                <a href="slider.php" class=" waves-effect waves-block">
-                                    <span>سلايدر و مميزات الشركة</span>
+                                <a href="{{ route('dashboard.view_settings') }}" class=" waves-effect waves-block">
+                                    <span>سلايدر و إعدادات الصفحة الرئيسية</span>
                                 </a>
                             </li>
+                            
                             <li>
-                                <a href="about.php" class=" waves-effect waves-block">
-                                    <span>عن الشركة و إحصائيات</span>
+                                <a href="{{ route('dashboard.view_settings.about') }}" class=" waves-effect waves-block">
+                                    <span>صفحة من نحن</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href="testimonials.php" class=" waves-effect waves-block">
-                                    <span>اراء العملاء</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="partners.php" class=" waves-effect waves-block">
-                                    <span>شركاء النجاح</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="home-services.php" class=" waves-effect waves-block">
-                                    <span>خدماتنا بالرئيسية</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="home-products.php" class=" waves-effect waves-block">
-                                    <span>منتجاتنا بالرئيسية</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="home-portfolio.php" class=" waves-effect waves-block">
-                                    <span>أعمالنا بالرئيسية</span>
-                                </a>
-                            </li>
+                            
                         </ul>
-                    </li> --}}
-{{--                     
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                            <i class="material-icons">radio</i>
-                            <span>المركز الإعلامي</span>
+                    </li>
+
+                    <li class="{{ is_current_route('dashboard.courses.index') ? 'active' : ''  }}">
+                        <a href="{{  route('dashboard.courses.index') }}">
+                            <i class="material-icons">email</i>
+                            <span>إدارة الكورسات</span>
                         </a>
-                        <ul class="ml-menu m-r-30" style="display: none;">
-                            <li>
-                                <a href="gallery.php" class=" waves-effect waves-block">
-                                    <span>مكتبة الصور</span>
-                                </a>
-                            </li>
-                            <li>
-                                <li class="{{ is_current_route('dashboard.videos.index') ? 'active' : ''  }}">
-                                    <span>مكتبة الفيديو</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="blog.php" class=" waves-effect waves-block">
-                                    <span>مدونة الاخبار</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </li> --}}
+                    </li>
+
                    
-                    {{-- <li>
-                        <a href="emails.php">
+                    <li class="{{ is_current_route('dashboard.messages.index') ? 'active' : ''  }}">
+                        <a href="{{  route('dashboard.messages.index') }}">
                             <i class="material-icons">email</i>
                             <span>القائمة البريدية</span>
                         </a>
                     </li>
                     
-                    <li>
-                        <a href="requests.php">
+                    <li class="{{ is_current_route('dashboard.appointments.index') ? 'active' : ''  }}">
+                        <a href="{{  route('dashboard.appointments.index') }}">
                             <i class="material-icons">library_books</i>
-                            <span>إدارة الطلبات</span>
+                            <span>إدارة الحجوزات</span>
                         </a>
-                    </li> --}}
+                    </li>
                     
                    
                 </ul>
