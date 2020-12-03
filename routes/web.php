@@ -15,7 +15,7 @@ Route::group(
     
     
     Route::name('frontend.')->group(function(){
-        
+         
         Route::get('/','HomeController@index')->name('index');
         Route::get('/services','HomeController@services')->name('services.index');
         Route::get('/team','HomeController@team')->name('team.index');

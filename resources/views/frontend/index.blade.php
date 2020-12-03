@@ -51,7 +51,7 @@
             <div class="col-lg-8 mb-4 wow slideInLeft" data-wow-duration="2s" data-wow-delay="0.3s">
                 <h1 class="font-weight-bold mb-4 welc-h">{{ get_setting_by_key('about_us_section_title')->translated_value }}</h1>
                 <p class="mb-4 welc-p text-justify">{{ get_setting_by_key('about_us_section_desc')->translated_value }}</p>
-                <a href="about.php" class="btn btn-primary btn-md">View More</a>
+                <a href="{{ route('frontend.about_us') }}" class="btn btn-primary btn-md">View More</a>
             </div>
             <div class="col-lg-4 wow slideInRight" data-wow-duration="2s" data-wow-delay="0.3s">
                 <div class="card-1"><img src="{{ get_setting_by_key('about_us_section_image')->image_path }}" class="img-fluid img-card"></div>
@@ -84,7 +84,7 @@
                 </div>
             </div>
             <div class="text-center">
-                <a href="services.php" class="btn bg-primary-color text-whitev">View More</a>
+                <a href="{{ route('frontend.services.index') }}" class="btn bg-primary-color text-whitev">View More</a>
             </div>
         </div>
     </div>
@@ -102,7 +102,7 @@
         <div class="row">
             @foreach ($team as $member)
             <div class="col-lg-3 col-md-6 wow fadeInUp" style="visibility: visible; animation-name: fadeInUp;">
-                <div class="member">
+				<div class="member" style="height: 250px; width:250px"> 
                     <img src="{{$member->image_path}}"
                         class="img-fluid" alt="">
                     <div class="member-info">
@@ -129,7 +129,7 @@
 
         </div>
         <div class="text-center">
-            <a href="team.php" class="btn bg-primary-color text-whitev">View More</a>
+            <a href="{{ route('frontend.team.index') }}" class="btn bg-primary-color text-whitev">View More</a>
         </div>
     </div>
 </section>
@@ -160,7 +160,7 @@
                         </div>
                     </div>
                     <div>
-                        <a href="course-detaills.php" class="btn btn-block btn-primary text-white "> COURSE DETAIL </a>
+                        <a href="{{ route('frontend.courses.show',$course) }}" class="btn btn-block btn-primary text-white "> COURSE DETAIL </a>
                     </div>
                 </div>                    
                 @endforeach

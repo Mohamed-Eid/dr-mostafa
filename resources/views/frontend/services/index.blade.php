@@ -7,7 +7,7 @@
     <div class="container-fluid ">
 
         @foreach ($services as $index => $service)
-        <div id="implement" class="row align-items-center">
+        <div id="service-{{$service->id}}" class="row align-items-center">
 
             @if ($index%2 == 0)
             <div class="img-box col-sm-12 col-md-6 "

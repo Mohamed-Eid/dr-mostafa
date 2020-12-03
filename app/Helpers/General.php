@@ -86,4 +86,9 @@ function get_day_name($number){
     return ['Saturday','Sunday','Monday','Tuesday','Wednsday','Thursday'][$number];
 }
 
+
+function services(){
+    return \App\Service::all();
+}
+
 ?>

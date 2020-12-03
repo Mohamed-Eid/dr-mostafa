@@ -38,7 +38,7 @@
                 <ul id="accordion" class="accordion">
                     <li class="nav-item">
                         <div class="item">
-                            <a href="index.php" class=" active">Home</a>
+                            <a href="{{ route('frontend.index') }}" class=" active">Home</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -51,44 +51,40 @@
                             </i>Our services <i class="fa fa-chevron-down"></i>
                         </div>
                         <ul class="submenu">
-                            <li><a href="services.php#implement" data-value="implement">Dental Implant</a></li>
-                            <li><a href="services.php#root" data-value="root">Orthodontic treatment</a></li>
-                            <li><a href="services.php#orth" data-value="orth">Root canal treatment</a></li>
-                            <li><a href="services.php#veneers" data-value="veneers">Veneers & cosmetics</a></li>
-                            <li><a href="services.php#bleach" data-value="bleach">Bleaching</a></li>
-                            <li><a href="services.php#pediatric" data-value="pediatric">Pediatric</a></li>
-                            <li><a href="services.php#crowns" data-value="crowns">Crowns & Bridges</a></li>
+                            @foreach (services() as $service)
+                            <li><a href="{{ route('frontend.services.index') }}#service-{{$service->id}}" data-value="service-{{$service->id}}">{{$service->title}}</a></li>  
+                            @endforeach
                         </ul>
                     </li>
                     <li class="nav-item">
                         <div class="item">
-                            <a href="team.php">Our team</a>
+                            <a href="{{ route('frontend.team.index') }}">Our team</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <div class="item">
-                            <a href="about.php">About Us</a>
+                            <a href="{{ route('frontend.about_us') }}">About Us</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <div class="item">
-                            <a href="gallery.php">Gallery</a>
+                            <a href="{{ route('frontend.gallery.index') }}">Gallery</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <div class="item">
-                            <a href="course.php">Educational courses</a>
+                            <a href="{{ route('frontend.courses.index') }}">Educational courses</a>
                         </div>
                     </li>
                     <li class="nav-item">
                         <div class="item">
-                            <a href="appointment.php">Request appointment</a>
+                            <a href="{{ route('frontend.appointments') }}">Request appointment</a>
                         </div>
                     </li>
 
                     <li class="nav-item">
                         <div class="item">
-                            <a href="contact.php"> Contact Us </a>
+                            <a href="{{ route('frontend.contact') }}"> Contact Us </a>
                         </div>
                     </li>
                 </ul>
@@ -105,7 +101,7 @@
             <div class="offer">
                 <div class="row weekly-box">
                     <div class="logo col-sm-4 col-md-1">
-                        <a href="index.php">
+                        <a href="{{ route('frontend.index') }}">
                             <img class="logoUpper" src="{{ asset('frontend/Technomasr/img/logo.png') }}" alt="">
                         </a>
                     </div>
