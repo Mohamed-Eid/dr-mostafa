@@ -52,8 +52,8 @@ class ServiceController extends Controller
         
         $data = $request->all();
        
-        $data['icon']  = upload_image('service_images',$request->icon);
-        $data['image'] = upload_image('service_images',$request->image);
+        $data['icon']  = upload_image_without_resize('service_images',$request->icon);
+        $data['image'] = upload_image_without_resize('service_images',$request->image);
 
 
         Service::create($data);
@@ -98,12 +98,12 @@ class ServiceController extends Controller
         
         if($request->has('icon')){
             delete_image('service_images',$service->icon);
-            $data['icon']  = upload_image('service_images',$request->icon);
+            $data['icon']  = upload_image_without_resize('service_images',$request->icon);
         }
 
         if($request->has('image')){
             delete_image('service_images',$service->image);
-            $data['image'] = upload_image('service_images',$request->image);
+            $data['image'] = upload_image_without_resize('service_images',$request->image);
         }
 
 

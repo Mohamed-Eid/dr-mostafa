@@ -1873,6 +1873,9 @@ button:focus {
   color: #777;
   padding: 0 25px;
 }
+.imgServ .container-fluid .info-box .feature-desc div p{
+  word-wrap: break-word;
+}
 
 /* .imgServ img{
   height: 260px;

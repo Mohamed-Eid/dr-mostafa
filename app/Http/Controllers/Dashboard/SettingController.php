@@ -87,4 +87,8 @@ class SettingController extends Controller
     public function view_settings(){
         return view('dashboard.view_settings.index');
     }
+
+    public function about_page(){
+        return view('dashboard.view_settings.about_page.index');
+    }
 }

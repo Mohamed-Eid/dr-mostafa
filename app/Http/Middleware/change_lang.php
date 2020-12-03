@@ -19,7 +19,7 @@ class change_lang
             app()->setLocale(session()->get('locale'));
         }else{
             //get defualt lang from db
-            app()->setLocale(get_setting_by_key('default_language')->one_value);
+            app()->setLocale(get_setting_by_key('default_lang')->value);
 
         }
 

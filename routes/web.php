@@ -1,33 +1,39 @@
 <?php
 
-Route::name('frontend.')->group(function(){
-    Route::get('/','HomeController@index')->name('index');
-
-    Route::get('/supervise-thesis','ThesisController@index')->name('thesis.index');
-    Route::get('/congress','CongressController@index')->name('congress.index');
-    Route::get('/certifications','CertificationController@index')->name('certifications.index');
-
-
-    Route::get('/esteems','EsteemController@index')->name('esteems.index');
+Route::get('change_language/{locale}',function($locale){
     
-    Route::get('/pages/pelvic_floor_center_in_cairo_university','PageController@center_of_cairo')->name('pages.center_of_cairo');
-    Route::get('/pages/pelvic_floor_center_of_excellence','PageController@center_of_excellence')->name('pages.center_of_excellence');
+    app()->setLocale($locale);
+    session()->put('locale',$locale);
+    // dd(LaravelLocalization::getCurrentLocaleDirection());
+    return redirect()->back();
+
+})->name('change_language');
+
+
+Route::group(
+    ['middleware' => [ 'change_lang' ]],function(){
     
-    Route::get('/basic_info','PageController@basic_info')->name('pages.basic_info');
-
-
-    Route::get('/contact_us','PageController@contact_us')->name('pages.contact_us');
-    Route::post('/contact_us_store','PageController@contact_us_store')->name('pages.contact_us.store');
     
-    Route::post('/subscribe','PageController@subscribe')->name('pages.subscribe');
+    Route::name('frontend.')->group(function(){
+        
+        Route::get('/','HomeController@index')->name('index');
+        Route::get('/services','HomeController@services')->name('services.index');
+        Route::get('/team','HomeController@team')->name('team.index');
+        Route::get('/gallery','HomeController@gallery')->name('gallery.index');
+        Route::get('/courses','HomeController@courses')->name('courses.index');
+        Route::get('/courses/{course}','HomeController@show_course')->name('courses.show');
+
+        Route::get('/about_us','HomeController@about_us')->name('about_us');
+
+        Route::post('/send_contact_message','HomeController@send_contact_message')->name('send_contact_message');
+
+        Route::get('/contact','HomeController@contact')->name('contact');
+        Route::get('/appointments','HomeController@appointments')->name('appointments');
+        Route::post('/save_appointment','HomeController@save_appointment')->name('save_appointment');
 
 
-    Route::get('/lectures','TeachingController@lectures')->name('teaching.lectures.index');
-    Route::get('/workshops','TeachingController@workshops')->name('teaching.workshops.index');
+    });//end of frontend routes
 
-    Route::get('/publications/books','PublicationController@books')->name('publications.books.index');
-    Route::get('/publications/articles','PublicationController@articles')->name('publications.articles.index');
-    Route::get('/publications/researches','PublicationController@researches')->name('publications.researches.index');
+});
 
 
-});//end of frontend routes

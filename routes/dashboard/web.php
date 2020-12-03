@@ -1,8 +1,5 @@
 <?php
 
-use App\Award;
-use App\Setting;
-
 Route::group(
     [        
         'prefix' => '',
@@ -32,6 +29,7 @@ Route::group(
                 Route::get('/delete_image/{setting}','SettingController@delete_setting_image')->name('setting.delete_image');
 
                 Route::get('view_settings','SettingController@view_settings')->name('view_settings');
+                Route::get('view_settings/about_page','SettingController@about_page')->name('view_settings.about');
 
 
 
@@ -40,6 +38,8 @@ Route::group(
                 Route::resource('videos'  , 'VideoController');
                 Route::resource('images'  , 'ImageController');
                 Route::resource('courses'  , 'CourseController');
+                Route::resource('messages'  , 'ContactController')->only(['index','destroy']);
+                Route::resource('appointments'  , 'AppointmentController')->only(['index','destroy']);
 
 
             });

@@ -82,5 +82,8 @@ function get_setting_by_key($key){
     return \App\Setting::where('key',$key)->first();
 }
 
+function get_day_name($number){
+    return ['Saturday','Sunday','Monday','Tuesday','Wednsday','Thursday'][$number];
+}
 
 ?>

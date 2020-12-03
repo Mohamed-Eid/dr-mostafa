@@ -2,45 +2,99 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Award;
-use App\Category;
-use App\Culture;
-use App\Delar;
-use App\Esteem;
-use App\Event;
+use App\Appointment;
+use App\Course;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Job;
-use App\Lecture;
-use App\Partner;
-use App\Post;
-use App\Product;
-use App\Publication;
-use App\Sector;
-use App\Testmonial;
-use App\Workshop;
+use App\Image;
+use App\Member;
+use App\Message;
+use App\Service;
+use App\Video;
 
 class HomeController extends Controller
 {
     public function index(){
-
-        $awards = Award::latest()->take(9)->get();
-
-        $publications = [];//TODO : Get From Settings
-
-        $teaching = [];
-        
-        $teaching['workshops'] = Workshop::latest()->take(2)->get();
-        $teaching['lectures']  = Lecture::latest()->take(2)->get();
- 
-        $congress = Event::latest()->take(3)->get();
-
-        $esteems = Esteem::latest()->take(4)->get();
-
-        //dd($congress);
-
-        return view('frontend.index',compact('awards','publications','teaching','congress','esteems'));
+        $services = Service::take(7)->get();
+        $team = Member::all();
+        $courses = Course::all();
+        return view('frontend.index',compact('services','team','courses'));
     }
+
+    public function services(){
+        $services = Service::all();
+        return view('frontend.services.index',compact('services'));
+    }
+
+    public function team(){
+        $team = Member::all();
+        return view('frontend.team.index',compact('team'));
+    }
+
+    public function gallery(){
+        $images = Image::paginate(9);
+        $videos = Video::paginate(9);
+        return view('frontend.gallery.index',compact('images','videos'));
+    }
+
+    public function courses(){
+        $courses = Course::all();
+        return view('frontend.courses.index',compact('courses'));
+    }
+
+    public function show_course(Course $course){
+        return view('frontend.courses.show',compact('course'));
+    }
+
+    public function about_us(){
+        return view('frontend.about.index');
+    }
+
+    public function send_contact_message(Request $request){
+        //dd($request->all());
+        $request->validate([
+            'name'    => 'required',
+            'email'   => 'required',
+            'phone'   => 'required',
+            'message' => 'required|min:10',
+        ]);
+
+        Message::create($request->all());
+
+        session()->flash('success', "تم إرسال الرساله بنجاح");
+
+        return redirect()->back();
+    }
+
+    public function contact(){
+        return view('frontend.contact.index');
+    }
+
+
+    public function appointments(){
+        return view('frontend.appointments.index');
+    }
+    public function save_appointment(Request $request){
+        
+        //dd($request->all());
+        
+        $request->validate([
+            'contact_method'  => 'required',
+            'visit_time'      => 'required',
+            'days'            => 'required',
+            'name'            => 'required',
+            'email'           => 'required',
+            'phone'           => 'required',
+            'message'         => 'required',
+        ]);
+
+        Appointment::create($request->all());
+
+        session()->flash('success', "تم إرسال الرساله بنجاح");
+
+        return redirect()->back();
+    }
+
 
 }
 
