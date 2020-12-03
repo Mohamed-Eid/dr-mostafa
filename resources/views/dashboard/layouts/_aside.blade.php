@@ -46,8 +46,8 @@
                         </a>
                     </li> --}}
                     
-                    <li>
-                        <a href="teamwork.php">
+                    <li class="{{ is_current_route('dashboard.members.index') ? 'active' : ''  }}">
+                        <a href="{{  route('dashboard.members.index') }}">
                             <i class="material-icons">account_box</i>
                             <span>إدارة فريق العمل</span>
                         </a>
@@ -58,6 +58,13 @@
                             <a href="{{  route('dashboard.services.index') }}">
                             <span>خدماتنا</span>
                         </a>
+                    </li>
+
+                    <li>
+                        <li class="{{ is_current_route('dashboard.videos.index') ? 'active' : ''  }}">
+                            <a href="{{  route('dashboard.services.index') }}">
+                                <span>مكتبة الفيديو</span>
+                            </a>
                     </li>
                     
                     {{-- <li>
@@ -102,7 +109,8 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
+                    </li> --}}
+{{--                     
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                             <i class="material-icons">radio</i>
@@ -115,7 +123,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="videos.php" class=" waves-effect waves-block">
+                                <li class="{{ is_current_route('dashboard.videos.index') ? 'active' : ''  }}">
                                     <span>مكتبة الفيديو</span>
                                 </a>
                             </li>
@@ -125,13 +133,15 @@
                                 </a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
+                    </li> --}}
+                   
+                    {{-- <li>
                         <a href="emails.php">
                             <i class="material-icons">email</i>
                             <span>القائمة البريدية</span>
                         </a>
                     </li>
+                    
                     <li>
                         <a href="requests.php">
                             <i class="material-icons">library_books</i>

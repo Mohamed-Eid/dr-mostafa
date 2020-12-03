@@ -33,7 +33,9 @@ Route::group(
 
 
                 Route::resource('services', 'ServiceController');
-                Route::resource('members', 'TeamController');
+                Route::resource('members' , 'TeamController');
+                Route::resource('videos'  , 'VideoController');
+                Route::resource('images'  , 'ImageController');
 
 
             });
