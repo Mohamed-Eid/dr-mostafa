@@ -31,6 +31,9 @@ Route::group(
                 Route::put('/setting/edit','SettingController@update_edit')->name('setting.update_edit');
                 Route::get('/delete_image/{setting}','SettingController@delete_setting_image')->name('setting.delete_image');
 
+                Route::get('view_settings','SettingController@view_settings')->name('view_settings');
+
+
 
                 Route::resource('services', 'ServiceController');
                 Route::resource('members' , 'TeamController');

@@ -83,4 +83,8 @@ class SettingController extends Controller
         return redirect()->back();
     }
     
+
+    public function view_settings(){
+        return view('dashboard.view_settings.index');
+    }
 }
