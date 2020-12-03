@@ -36,6 +36,7 @@ Route::group(
                 Route::resource('members' , 'TeamController');
                 Route::resource('videos'  , 'VideoController');
                 Route::resource('images'  , 'ImageController');
+                Route::resource('courses'  , 'CourseController');
 
 
             });
