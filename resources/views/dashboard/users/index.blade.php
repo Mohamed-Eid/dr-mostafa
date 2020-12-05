@@ -44,7 +44,7 @@
                                         <p>{{$user->email}}</p>
                                     </td>
                                     <td class="text-center">
-                                        @if(auth()->user()->hasPermission('edit_users'))
+                                        @if(auth()->user()->hasPermission('update_users'))
                                         <a href="{{ route('dashboard.users.edit',$user) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
                                             <i class="material-icons">settings</i>

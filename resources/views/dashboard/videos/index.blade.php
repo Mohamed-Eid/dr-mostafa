@@ -45,7 +45,7 @@
 
                             <td class="text-center">
 
-                                @if(auth()->user()->hasPermission('edit_videos'))
+                                @if(auth()->user()->hasPermission('update_videos'))
                                 <a href="{{route('dashboard.videos.edit',$video)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top"
                                     data-original-title="تعديل ">
                                     <i class="material-icons">settings</i>

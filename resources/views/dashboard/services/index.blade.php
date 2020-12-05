@@ -57,7 +57,7 @@
                                     </td>
 
                                     <td class="text-center">
-                                        @if(auth()->user()->hasPermission('edit_services'))
+                                        @if(auth()->user()->hasPermission('update_services'))
                                         <a href="{{ route('dashboard.services.edit',$service) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
                                             <i class="material-icons">settings</i>

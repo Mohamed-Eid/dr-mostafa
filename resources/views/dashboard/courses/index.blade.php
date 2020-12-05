@@ -55,7 +55,7 @@
                                     </td>
                                     <td class="text-center">
                                         
-                                        @if(auth()->user()->hasPermission('edit_courses'))
+                                        @if(auth()->user()->hasPermission('update_courses'))
                                         <a href="{{ route('dashboard.courses.edit',$course) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
                                             <i class="material-icons">settings</i>

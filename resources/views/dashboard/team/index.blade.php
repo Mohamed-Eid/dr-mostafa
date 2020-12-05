@@ -48,7 +48,7 @@
                                         <p>{{$member->email}}</p>
                                     </td>
                                     <td class="text-center">
-                                        @if(auth()->user()->hasPermission('edit_members'))
+                                        @if(auth()->user()->hasPermission('update_members'))
 
                                         <a href="{{ route('dashboard.members.edit',$member) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
