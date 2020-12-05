@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Ghoneim</title>
-    <link rel="shortcut icon" href="{{ asset('frontend/Technomasr/Technomasr/img/logo.png') }}">
+    <title>{{get_setting_by_key('site_name')->translated_value}}</title>
+    <link rel="shortcut icon" href="{{get_setting_by_key('icon')->image_path}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.css"
         integrity="sha512-WEQNv9d3+sqyHjrqUZobDhFARZDko2wpWdfcpv44lsypsSuMO0kHGd3MQ8rrsBn/Qa39VojphdU6CMkpJUmDVw=="
         crossorigin="anonymous" />
@@ -102,7 +102,7 @@
                 <div class="row weekly-box">
                     <div class="logo col-sm-4 col-md-1">
                         <a href="{{ route('frontend.index') }}">
-                            <img class="logoUpper" src="{{ asset('frontend/Technomasr/img/logo.png') }}" alt="">
+                            <img class="logoUpper" src="{{get_setting_by_key('logo')->image_path}}" alt="">
                         </a>
                     </div>
 
@@ -114,30 +114,30 @@
 
                     <div class="socialParent col-sm-8 col-md-5  pt-2">
                         <ul>
-                            <li><a href="call:01000000001"> <i class="fas fa-phone-alt"
-                                        style="font-size: 17px; margin: 0 0.5em 0 0.5em"></i> 01000000001 </a></li>
+                            <li><a href="call:{{get_setting_by_key('phone')->value}}"> <i class="fas fa-phone-alt"
+                                        style="font-size: 17px; margin: 0 0.5em 0 0.5em"></i> {{get_setting_by_key('phone')->value}} </a></li>
                             <li><a href="#"> <i class="far fa-envelope"
-                                        style="font-size: 17px; margin: 0 0.5em 0 0.5em"></i> example_email@example.com
+                                        style="font-size: 17px; margin: 0 0.5em 0 0.5em"></i> {{get_setting_by_key('email')->value}}
                                 </a></li>
                         </ul>
                         <ul class="socialUpper">
                             <li>
-                                <a href="" target="_blank">
+                                <a href="{{get_setting_by_key('facebook')->value}}" target="_blank">
                                     <i class="fab fa-facebook"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="" target="_blank">
+                                <a href="{{get_setting_by_key('instagram')->value}}" target="_blank">
                                     <i class="fab fa-instagram"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="" target="_blank">
+                                <a href="{{get_setting_by_key('youtube')->value}}" target="_blank">
                                     <i class="fab fa-youtube"></i>
                                 </a>
                             </li>
                             <li>
-                                <a href="" target="_blank">
+                                <a href="{{get_setting_by_key('whatsapp')->value}}" target="_blank">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
                             </li>

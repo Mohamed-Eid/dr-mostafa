@@ -19,7 +19,7 @@
                 <div class="feature-desc">
                     <h2>{{$service->title}}</h2>
                     <div>
-                        {!! $service->description !!}
+                        {!! strip_tags($service->description) !!}
                         {{-- Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni autem atque odio! Rem, saepe enim quod nam facere doloribus consectetur voluptate. Corrupti nesciunt voluptatibus pariatur perspiciatis dignissimos velit temporibus dolore. 
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni autem atque odio! Rem, saepe enim quod nam facere doloribus consectetur voluptate. Corrupti nesciunt voluptatibus pariatur perspiciatis dignissimos velit temporibus dolore. --}}
                     </div>
