@@ -16,9 +16,11 @@
                 <div class="card">
                     <div class="header">
                         <h5 class="d-inline-block">إدارة الكورسات</h5>
+                        @if(auth()->user()->hasPermission('create_courses'))
                         <a href="{{route('dashboard.courses.create')}}" class="btn bg-blue pull-left">
                             <i class="material-icons">library_add</i>
                             إضافة كورس</a>
+                        @endif
                     </div>
                     <div class="body">
                         <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -52,14 +54,17 @@
                                         <li class="m-t-10">{{$course->translate('en')->instructor}}</li>
                                     </td>
                                     <td class="text-center">
-
+                                        
+                                        @if(auth()->user()->hasPermission('edit_courses'))
                                         <a href="{{ route('dashboard.courses.edit',$course) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
                                             <i class="material-icons">settings</i>
                                         </a>
+                                        @endif
 
+                                        @if(auth()->user()->hasPermission('delete_courses'))
                                         @include('partials._delete_btn',['route'=>  route('dashboard.courses.destroy' , $course)])
-
+                                        @endif
                                     </td>
                                 </tr>                                    
                                 @endforeach

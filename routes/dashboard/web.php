@@ -37,6 +37,9 @@ Route::group(
                 Route::get('edit_profile','UserController@edit_profile')->name('edit_profile');
                 Route::put('update_profile','UserController@update_profile')->name('update_profile');
 
+                Route::resource('roles', 'RoleController');
+
+
                 Route::resource('services', 'ServiceController');
                 Route::resource('members' , 'TeamController');
                 Route::resource('videos'  , 'VideoController');

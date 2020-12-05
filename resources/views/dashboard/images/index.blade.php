@@ -15,10 +15,12 @@
                         <h5 class="d-inline-block">
                             ألبومات الصور
                         </h5>
-                        <a href="add-album.php" class="btn bg-blue pull-left">
+                        @if(auth()->user()->hasPermission('create_images'))
+                        <a href="{{ route('dashboard.images.create') }}" class="btn bg-blue pull-left">
                             <i class="material-icons">library_add</i>
                             إضافة ألبوم
                         </a>
+                        @endif
                     </div>
                     <div class="body js-sweetalert">
                         <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -38,8 +40,11 @@
                                     <td>
                                         <img src="{{$image->image_path}}" alt="البومات الصور" style="width:100px;">
                                     </td>
+
                                     <td class="text-center">
+                                        @if(auth()->user()->hasPermission('delete_images'))
                                         @include('partials._delete_btn',['route'=>  route('dashboard.images.destroy',$image)])
+                                        @endif
                                     </td>
                                 </tr>                                    
                                 @endforeach

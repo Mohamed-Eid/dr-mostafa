@@ -55,7 +55,7 @@
                                         </div>
 
 
-                                        <div class="col-md-12 col-sm-12 col-xs-12">
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div class="input-group">
                                                 <span class="input-group-addon">
                                                     <i class="material-icons">email</i>
@@ -66,6 +66,23 @@
                                                 </div>
                                             </div>
                                         </div>
+
+
+                                        <div class="col-md-6 col-sm-6 col-xs-12">
+                                            <p><b>الصلاحيات</b></p>
+                                            <div class="input-group input-group-lg">
+                                                <span class="input-group-addon">
+                                                    <i class="material-icons">lock_open</i>
+                                                </span>
+                                                <div class="form-line">
+                                                    <select class="form-control show-tick" data-live-search="true" name="role">
+                                                        @foreach ($roles as $role)
+                                                        <option value="{{ $role->id }}" {{ $user->hasRole($role->name) ? 'selected' : '' }}>{{ $role->display_name }}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>  
 
                                         <div class="col-md-6 col-sm-6 col-xs-12">
                                             <div class="input-group">

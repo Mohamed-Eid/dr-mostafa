@@ -48,8 +48,10 @@
 
 
                                     <td class="text-center">
-                                    @include('partials._delete_btn',['route'=>  route('dashboard.appointments.destroy' , $appintment)])
-                                    </td>
+                                        @if(auth()->user()->hasPermission('delete_contact'))
+                                        @include('partials._delete_btn',['route'=>  route('dashboard.appointments.destroy' , $appintment)])
+                                        @endif
+                                     </td>
                                 </tr>                                    
                                 @endforeach
 

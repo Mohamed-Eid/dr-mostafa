@@ -16,10 +16,13 @@
                 <h5 class="d-inline-block">
                     مكتبة الفيديو
                 </h5>
+                @if(auth()->user()->hasPermission('create_videos'))
                 <a href="{{ route('dashboard.videos.create') }}" class="btn bg-blue pull-left">
                     <i class="material-icons">library_add</i>
                     إضافة فيديو
                 </a>
+                @endif
+
             </div>
             <div class="body js-sweetalert">
                 <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -41,11 +44,17 @@
                             </td>
 
                             <td class="text-center">
+
+                                @if(auth()->user()->hasPermission('edit_videos'))
                                 <a href="{{route('dashboard.videos.edit',$video)}}" class="btn btn-primary" data-toggle="tooltip" data-placement="top"
                                     data-original-title="تعديل ">
                                     <i class="material-icons">settings</i>
                                 </a>
+                                @endif
+
+                                @if(auth()->user()->hasPermission('delete_videos'))
                                 @include('partials._delete_btn',['route'=>  route('dashboard.videos.destroy',$video)])
+                                @endif
 
                             </td>
                         </tr>                            

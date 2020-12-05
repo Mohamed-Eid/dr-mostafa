@@ -28,7 +28,8 @@ class UserController extends Controller
      */
     public function create()
     {
-        return view('dashboard.users.create');
+        $roles = Role::where('name','!=','super_admin')->get();
+        return view('dashboard.users.create',compact('roles'));
     }
 
     /**
@@ -45,6 +46,8 @@ class UserController extends Controller
             'last_name' => 'required',
             'email' => 'required|unique:users',
             'password' => 'required|confirmed',
+            'role'        => 'required',
+
         ]);
         $data = $request->except(['password', 'password_confirmation',]);
         $data['password'] = bcrypt($request->password);
@@ -52,7 +55,11 @@ class UserController extends Controller
 
         $user = User::create($data);
 
-        //$user->attachRole('admin');
+        $user->attachRole($request->role);
+
+        $role = Role::find($request->role);
+
+        $user->syncPermissions($role->permissions);
 
         session()->flash('success', __('site.added_successfully'));
 
@@ -80,13 +87,15 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        return view('dashboard.users.edit',compact('user'));
+        $roles = Role::where('name','!=','super_admin')->get();
+        // $roles = Role::all();
+        return view('dashboard.users.edit',compact('user','roles'));
     }
 
     public function edit_profile()
     {
         $user = auth()->user();
-        return view('dashboard.users.edit',compact('user'));
+        return view('dashboard.users.edit_profile',compact('user'));
     }
 
     /**
@@ -117,13 +126,13 @@ class UserController extends Controller
         //dd($data);
         $user->update($data);
         
-        // $user->detachRoles($user->roles); // parameter can be a Role object, array, id or the role string name
+        $user->detachRoles($user->roles); // parameter can be a Role object, array, id or the role string name
 
-        // $user->attachRole($request->role);
+        $user->attachRole($request->role);
 
-        // $role = Role::find($request->role);
+        $role = Role::find($request->role);
 
-        // $user->syncPermissions($role->permissions);
+        $user->syncPermissions($role->permissions);
 
         session()->flash('success', "تم تعديل البيانات بنجاح");
 

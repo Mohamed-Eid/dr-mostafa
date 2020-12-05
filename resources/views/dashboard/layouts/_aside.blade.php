@@ -3,13 +3,13 @@
         <!-- User info -->
             <div class="user-info text-center">
                 <div class="image">
-                    <img src="Assets/images/logo.png" width="48" height="48" alt="User">
+                    <img src="{{ get_setting_by_key('logo')->image_path }}" width="48" height="48" alt="User">
                 </div>
                 <div class="info-container">
-                    <div class="email col-blue-grey font-20">info@example.com</div>
+                    <div class="email col-blue-grey font-20">{{ auth()->user()->email }} </div>
                 </div>
             </div>
-        <!-- #END# user info -->
+        <!-- #END# user info --> 
         <!-- Menu -->
             <div class="menu">
                 <ul class="list" style="height: 470px!important">
@@ -33,34 +33,43 @@
                         </a>
                     </li> 
 
+                    @if(auth()->user()->hasPermission('read_roles'))
                     <li>
-                        <a href="{{ route('dashboard.edit_profile') }}">
+                        <a href="{{ route('dashboard.roles.index') }}">
+                            <i class="material-icons">lock</i>
+                            <span>الصلاحيات والادوار</span>
+                        </a>
+                    </li> 
+                    @endif
+
+                    @if(auth()->user()->hasPermission('read_users'))
+                    <li>
+                        <a href="{{ route('dashboard.users.index') }}">
                             <i class="material-icons">people</i>
                             <span>إدارة المشرفين</span>
                         </a>
                     </li> 
-                    
+                    @endif
+
+                    @if(auth()->user()->hasPermission('update_settings'))
                     <li class="{{ is_current_route('dashboard.basic_settings') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.basic_settings') }}">
                             <i class="material-icons">settings</i>
                             <span>إعدادات الموقع</span>
                         </a>
                     </li>
-                    
-                    {{-- <li>
-                        <a href="pages.php">
-                            <i class="material-icons">widgets </i>
-                            <span>إدارة الصفحات</span>
-                        </a>
-                    </li> --}}
-                    
+                    @endif
+
+                    @if(auth()->user()->hasPermission('read_members'))
                     <li class="{{ is_current_route('dashboard.members.index') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.members.index') }}">
                             <i class="material-icons">account_box</i>
                             <span>إدارة فريق العمل</span>
                         </a>
                     </li>
+                    @endif
 
+                    @if(auth()->user()->hasPermission('read_services'))
                     <li>
                         <li class="{{ is_current_route('dashboard.services.index') ? 'active' : ''  }}">
                             <a href="{{  route('dashboard.services.index') }}">
@@ -68,7 +77,9 @@
                             <span>خدماتنا</span>
                         </a>
                     </li>
+                    @endif
 
+                    @if(auth()->user()->hasPermission('read_videos'))
                     <li>
                         <li class="{{ is_current_route('dashboard.videos.index') ? 'active' : ''  }}">
                             <a href="{{  route('dashboard.videos.index') }}">
@@ -76,7 +87,9 @@
                                 <span>مكتبة الفيديو</span>
                             </a>
                     </li>
+                    @endif
 
+                    @if(auth()->user()->hasPermission('read_images'))
                     <li>
                         <li class="{{ is_current_route('dashboard.images.index') ? 'active' : ''  }}">
                             <a href="{{  route('dashboard.images.index') }}">
@@ -84,7 +97,9 @@
                                 <span>مكتبة الصور</span>
                             </a>
                     </li>
-                    
+                    @endif
+
+                    @if(auth()->user()->hasPermission('update_view_settings'))
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
                             <i class="material-icons">picture_in_picture</i>
@@ -105,29 +120,34 @@
                             
                         </ul>
                     </li>
+                    @endif
 
+                    @if(auth()->user()->hasPermission('read_courses'))
                     <li class="{{ is_current_route('dashboard.courses.index') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.courses.index') }}">
                             <i class="material-icons">email</i>
                             <span>إدارة الكورسات</span>
                         </a>
                     </li>
+                    @endif
 
-                   
+                    @if(auth()->user()->hasPermission('read_contact'))
                     <li class="{{ is_current_route('dashboard.messages.index') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.messages.index') }}">
                             <i class="material-icons">email</i>
                             <span>القائمة البريدية</span>
                         </a>
                     </li>
-                    
+                    @endif
+
+                    @if(auth()->user()->hasPermission('read_appointments'))
                     <li class="{{ is_current_route('dashboard.appointments.index') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.appointments.index') }}">
                             <i class="material-icons">library_books</i>
                             <span>إدارة الحجوزات</span>
                         </a>
                     </li>
-                    
+                    @endif
                    
                 </ul>
             </div>

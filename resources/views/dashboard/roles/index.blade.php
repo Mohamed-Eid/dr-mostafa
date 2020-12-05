@@ -8,18 +8,18 @@
         <!-- Breadcrumb -->
         <ol class="breadcrumb bg-white">
             <li><a href="Admindashboard.php">الرئيسية</a></li>
-            <li class="active">المشرفين</li>
+            <li class="active">صلاحيات وأدوار</li>
         </ol>
         <!-- table -->
         <div class="row clearfix js-sweetalert">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="card">
                     <div class="header">
-                        <h5 class="d-inline-block">إدارة  المشرفين</h5>
-                        @if(auth()->user()->hasPermission('create_users'))
-                        <a href="{{route('dashboard.users.create')}}" class="btn bg-blue pull-left">
+                        <h5 class="d-inline-block">إدارة  الصلاحيات</h5>
+                        @if(auth()->user()->hasPermission('create_roles'))
+                        <a href="{{route('dashboard.roles.create')}}" class="btn bg-blue pull-left">
                             <i class="material-icons">library_add</i>
-                            إضافة مشرف</a>
+                            إضافة </a>
                         @endif
                     </div>
                     <div class="body">
@@ -28,32 +28,40 @@
                                 <tr>
                                     <th style="width:15px;">#</th>
                                     <th>الإسم</th>
-                                    <th>البريد الإلكتروني</th>
+                                    <th>الاسم المعروض</th>
+                                    <th>وصف</th>
                                     <th style="width:120px;">إجراءات</th>
                                 </tr>
                             </thead> 
 
                             <tbody>
-                                @foreach ($users as $index => $user)
+                                @foreach ($roles as $index => $role)
                                 <tr>
                                     <td>{{$index + 1}}</td>
                                     <td>
-                                        <p>{{$user->first_name .' '.$user->last_name}} </p>
+                                        <p>{{$role->name}} </p>
                                     </td>
+
                                     <td>
-                                        <p>{{$user->email}}</p>
+                                        <p>{{$role->display_name}} </p>
                                     </td>
+
+                                    <td>
+                                        <p>{{$role->description}} </p>
+                                    </td>
+
                                     <td class="text-center">
-                                        @if(auth()->user()->hasPermission('edit_users'))
-                                        <a href="{{ route('dashboard.users.edit',$user) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
+
+                                        @if(auth()->user()->hasPermission('update_roles'))
+                                        <a href="{{ route('dashboard.roles.edit',$role) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
                                             <i class="material-icons">settings</i>
                                         </a>
                                         @endif
 
-                                        @if(auth()->user()->hasPermission('delete_users'))
+                                        @if(auth()->user()->hasPermission('delete_roles'))
                                         <form method="post"
-                                        action="{{route('dashboard.users.destroy' , $user)}}"
+                                        action="{{route('dashboard.roles.destroy' , $role)}}"
                                         style="display: inline-block">
                                         @csrf()
                                         @method('delete')
@@ -63,7 +71,6 @@
                                         </button>
                                         </form>
                                         @endif
-                                        
                                     </td>
                                 </tr>                                    
                                 @endforeach

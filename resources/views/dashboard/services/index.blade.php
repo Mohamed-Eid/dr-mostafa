@@ -20,10 +20,13 @@
                             خدماتنا
                         </h5>
                         <div class="pull-left m-r-20 m-l-20">
+                            @if(auth()->user()->hasPermission('create_services'))
                             <a href="{{ route('dashboard.services.create') }}" class="btn bg-blue">
                                 <i class="material-icons">library_add</i>
                                 إضافة خدمة
                             </a>
+                            @endif
+
                         </div>
                     </div>
                     <div class="body">
@@ -54,11 +57,14 @@
                                     </td>
 
                                     <td class="text-center">
-
+                                        @if(auth()->user()->hasPermission('edit_services'))
                                         <a href="{{ route('dashboard.services.edit',$service) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
                                             <i class="material-icons">settings</i>
                                         </a>
+                                        @endif
+
+                                        @if(auth()->user()->hasPermission('delete_services'))
                                         <form method="post"
                                         action="{{route('dashboard.services.destroy' , $service)}}"
                                         style="display: inline-block">
@@ -69,6 +75,8 @@
                                                 class="material-icons">delete_forever</i>
                                         </button>
                                         </form>
+                                        @endif
+
                                     </td>
                                 </tr>                                    
                                 @endforeach

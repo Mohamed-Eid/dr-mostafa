@@ -2,7 +2,7 @@
 
 @section('content')
 
-<!-- content -->
+<!-- content --> 
 <section class="content">
     <div class="container-fluid">
         <!-- Breadcrumb -->
@@ -16,9 +16,11 @@
                 <div class="card">
                     <div class="header">
                         <h5 class="d-inline-block">إدارة فريق العمل</h5>
+                        @if(auth()->user()->hasPermission('create_members'))
                         <a href="{{route('dashboard.members.create')}}" class="btn bg-blue pull-left">
                             <i class="material-icons">library_add</i>
                             إضافة عضو</a>
+                        @endif
                     </div>
                     <div class="body">
                         <table class="table table-bordered table-striped table-hover js-basic-example dataTable">
@@ -46,11 +48,15 @@
                                         <p>{{$member->email}}</p>
                                     </td>
                                     <td class="text-center">
+                                        @if(auth()->user()->hasPermission('edit_members'))
 
                                         <a href="{{ route('dashboard.members.edit',$member) }}" class="btn btn-primary  m-5" data-toggle="tooltip"
                                             data-placement="top" data-original-title="تعديل ">
                                             <i class="material-icons">settings</i>
                                         </a>
+                                        @endif
+
+                                        @if(auth()->user()->hasPermission('delete_members'))
                                         <form method="post"
                                         action="{{route('dashboard.members.destroy' , $member)}}"
                                         style="display: inline-block">
@@ -61,6 +67,7 @@
                                                 class="material-icons">delete_forever</i>
                                         </button>
                                         </form>
+                                        @endif
                                     </td>
                                 </tr>                                    
                                 @endforeach

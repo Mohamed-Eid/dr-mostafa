@@ -38,7 +38,9 @@
 
 
                                     <td class="text-center">
+                                    @if(auth()->user()->hasPermission('delete_appointments'))
                                     @include('partials._delete_btn',['route'=>  route('dashboard.messages.destroy' , $message)])
+                                    @endif
                                     </td>
                                 </tr>                                    
                                 @endforeach
