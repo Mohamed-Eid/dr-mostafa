@@ -78,7 +78,7 @@
                     </div>
                     <div class="head-navbar" >
                         <ul class="nav navbar-nav navbar-left">
-                            <!-- Notifications -->
+                            {{-- <!-- Notifications -->
                                 <li class="dropdown" data-toggle="tooltip" data-placement="top" data-original-title="بيانات الأمان ">
                                     <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button">
                                         <i class="material-icons">notifications</i>
@@ -218,7 +218,7 @@
                                         </li>
                                     </ul>
                                 </li>
-                            <!-- #END# Messages -->
+                            <!-- #END# Messages --> --}}
     
                             <li class="d-inline-block" data-toggle="tooltip" data-placement="top" data-original-title="تسجيل الخروج ">
                                 <a href="javascript:void(0);" class=" waves-effect waves-block">

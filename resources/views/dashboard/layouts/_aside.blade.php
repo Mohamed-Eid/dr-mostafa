@@ -73,7 +73,7 @@
                     <li>
                         <li class="{{ is_current_route('dashboard.services.index') ? 'active' : ''  }}">
                             <a href="{{  route('dashboard.services.index') }}">
-                                <i class="material-icons">account_box</i>
+                                <i class="material-icons">local_laundry_service</i>
                             <span>خدماتنا</span>
                         </a>
                     </li>
@@ -83,7 +83,7 @@
                     <li>
                         <li class="{{ is_current_route('dashboard.videos.index') ? 'active' : ''  }}">
                             <a href="{{  route('dashboard.videos.index') }}">
-                                <i class="material-icons">account_box</i>
+                                <i class="material-icons">video_library</i>
                                 <span>مكتبة الفيديو</span>
                             </a>
                     </li>
@@ -93,7 +93,7 @@
                     <li>
                         <li class="{{ is_current_route('dashboard.images.index') ? 'active' : ''  }}">
                             <a href="{{  route('dashboard.images.index') }}">
-                                <i class="material-icons">account_box</i>
+                                <i class="material-icons">photo_library</i>
                                 <span>مكتبة الصور</span>
                             </a>
                     </li>
@@ -102,7 +102,7 @@
                     @if(auth()->user()->hasPermission('update_view_settings'))
                     <li>
                         <a href="javascript:void(0);" class="menu-toggle waves-effect waves-block">
-                            <i class="material-icons">picture_in_picture</i>
+                            <i class="material-icons">settings_brightness</i>
                             <span>إعدادات الظهور</span>
                         </a>
                         <ul class="ml-menu m-r-30" style="display: none;">
@@ -125,7 +125,7 @@
                     @if(auth()->user()->hasPermission('read_courses'))
                     <li class="{{ is_current_route('dashboard.courses.index') ? 'active' : ''  }}">
                         <a href="{{  route('dashboard.courses.index') }}">
-                            <i class="material-icons">email</i>
+                            <i class="material-icons">functions</i>
                             <span>إدارة الكورسات</span>
                         </a>
                     </li>
