@@ -9,6 +9,14 @@ use Illuminate\Validation\Rule;
 
 class ServiceController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['ability:super_admin,read_sercices'])->only('index');
+        $this->middleware(['ability:super_admin,create_sercices'])->only('create');
+        $this->middleware(['ability:super_admin,update_sercices'])->only('edit');
+        $this->middleware(['ability:super_admin,delete_sercices'])->only('destroy');
+
+    }
     /**
      * Display a listing of the resource.
      *

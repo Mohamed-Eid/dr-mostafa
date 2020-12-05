@@ -8,6 +8,12 @@ use App\Message;
 
 class ContactController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['ability:super_admin,read_contact'])->only('index');
+        $this->middleware(['ability:super_admin,delete_contact'])->only('destroy');
+
+    }
     /**
      * Display a listing of the resource.
      *

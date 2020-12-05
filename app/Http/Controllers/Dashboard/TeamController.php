@@ -9,6 +9,14 @@ use Illuminate\Validation\Rule;
 
 class TeamController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['ability:super_admin,read_members'])->only('index');
+        $this->middleware(['ability:super_admin,create_members'])->only('create');
+        $this->middleware(['ability:super_admin,update_members'])->only('edit');
+        $this->middleware(['ability:super_admin,delete_members'])->only('destroy');
+
+    }
     /**
      * Display a listing of the resource.
      *

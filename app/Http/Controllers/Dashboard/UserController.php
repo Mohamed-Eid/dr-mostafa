@@ -10,6 +10,14 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['ability:super_admin,read_users'])->only('index');
+        $this->middleware(['ability:super_admin,create_users'])->only('create');
+        $this->middleware(['ability:super_admin,update_users'])->only('edit');
+        $this->middleware(['ability:super_admin,delete_users'])->only('destroy');
+
+    }
     /**
      * Display a listing of the resource.
      *

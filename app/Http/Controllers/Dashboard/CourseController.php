@@ -8,6 +8,14 @@ use App\Http\Controllers\Controller;
 
 class CourseController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware(['ability:super_admin,read_courses'])->only('index');
+        $this->middleware(['ability:super_admin,create_courses'])->only('create');
+        $this->middleware(['ability:super_admin,update_courses'])->only('edit');
+        $this->middleware(['ability:super_admin,delete_courses'])->only('destroy');
+
+    }
     /**
      * Display a listing of the resource.
      *

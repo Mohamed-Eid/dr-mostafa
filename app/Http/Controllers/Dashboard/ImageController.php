@@ -8,6 +8,15 @@ use App\Image;
 
 class ImageController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['ability:super_admin,read_images'])->only('index');
+        $this->middleware(['ability:super_admin,create_images'])->only('create');
+        $this->middleware(['ability:super_admin,update_images'])->only('edit');
+        $this->middleware(['ability:super_admin,delete_images'])->only('destroy');
+
+    }
     /**
      * Display a listing of the resource.
      *

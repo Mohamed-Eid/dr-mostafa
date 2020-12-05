@@ -8,6 +8,13 @@ use App\Http\Controllers\Controller;
 
 class AppointmentController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware(['ability:super_admin,read_appointments'])->only('index');
+        $this->middleware(['ability:super_admin,delete_appointments'])->only('destroy');
+
+    }
      /**
      * Display a listing of the resource.
      *
