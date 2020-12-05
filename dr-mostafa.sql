@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 03, 2020 at 03:12 PM
+-- Generation Time: Dec 05, 2020 at 11:13 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.10
 
@@ -316,6 +316,46 @@ CREATE TABLE `permissions` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `permissions`
+--
+
+INSERT INTO `permissions` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
+(48, 'create_users', 'إضافه مستخدمين', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(49, 'read_users', 'قراءة مستخدمين', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(50, 'update_users', 'تعديل مستخدمين', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(51, 'delete_users', 'حذف مستخدمين', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(52, 'update_settings', 'تعديل إعدادات الموقع', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(53, 'update_view_settings', 'تعديل إعدادات الظهور', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(54, 'create_members', 'إضافة عضو فريق عمل', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(55, 'read_members', 'قراءة اعضاء فريق عمل', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(56, 'update_members', 'تعديل عضو فريق عمل', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(57, 'delete_members', 'حذف عضو فريق عمل', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(58, 'create_services', 'إضافه خدمات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(59, 'read_services', 'قراءة خدمات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(60, 'update_services', 'تعديل خدمات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(61, 'delete_services', 'حذف خدمات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(62, 'create_videos', 'إضافه فيديوهات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(63, 'read_videos', 'قراءة فيديوهات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(64, 'update_videos', 'تعديل فيديوهات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(65, 'delete_videos', 'حذف فيديوهات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(66, 'create_images', 'إضافه صور', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(67, 'read_images', 'قراءة صور', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(68, 'update_images', 'تعديل صور', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(69, 'delete_images', 'حذف صور', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(70, 'create_courses', 'إضافه كورسات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(71, 'read_courses', 'قراءة كورسات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(72, 'update_courses', 'تعديل كورسات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(73, 'delete_courses', 'حذف كورسات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(74, 'read_appointments', 'قراءة حجوزات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(75, 'delete_appointments', 'حذف حجوزات', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(76, 'read_contact', 'قراءة رسائل بريديه', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(77, 'delete_contact', 'حذف رسائل بريديه', '', '2020-12-05 08:42:59', '2020-12-05 08:42:59'),
+(78, 'create_roles', 'إضافه صلاحيات', '', '2020-12-05 08:44:31', '2020-12-05 08:44:31'),
+(79, 'read_roles', 'قراءة صلاحيات', '', '2020-12-05 08:44:31', '2020-12-05 08:44:31'),
+(80, 'update_roles', 'تعديل صلاحيات', '', '2020-12-05 08:44:31', '2020-12-05 08:44:31'),
+(81, 'delete_roles', 'حذف صلاحيات', '', '2020-12-05 08:44:31', '2020-12-05 08:44:31');
+
 -- --------------------------------------------------------
 
 --
@@ -326,6 +366,80 @@ CREATE TABLE `permission_role` (
   `permission_id` int(10) UNSIGNED NOT NULL,
   `role_id` int(10) UNSIGNED NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `permission_role`
+--
+
+INSERT INTO `permission_role` (`permission_id`, `role_id`) VALUES
+(48, 1),
+(48, 3),
+(49, 1),
+(49, 3),
+(50, 1),
+(50, 3),
+(51, 1),
+(51, 3),
+(52, 1),
+(52, 3),
+(53, 1),
+(53, 3),
+(54, 1),
+(54, 3),
+(55, 1),
+(55, 3),
+(56, 1),
+(56, 3),
+(57, 1),
+(57, 3),
+(58, 1),
+(58, 3),
+(59, 1),
+(59, 3),
+(60, 1),
+(60, 3),
+(61, 1),
+(61, 3),
+(62, 1),
+(62, 3),
+(63, 1),
+(63, 3),
+(64, 1),
+(64, 3),
+(65, 1),
+(65, 3),
+(66, 1),
+(66, 3),
+(67, 1),
+(67, 3),
+(68, 1),
+(68, 3),
+(69, 1),
+(69, 3),
+(70, 1),
+(70, 3),
+(71, 1),
+(71, 3),
+(72, 1),
+(72, 3),
+(73, 1),
+(73, 3),
+(74, 1),
+(74, 3),
+(75, 1),
+(75, 3),
+(76, 1),
+(76, 3),
+(77, 1),
+(77, 3),
+(78, 1),
+(78, 3),
+(79, 1),
+(79, 3),
+(80, 1),
+(80, 3),
+(81, 1),
+(81, 3);
 
 -- --------------------------------------------------------
 
@@ -338,6 +452,80 @@ CREATE TABLE `permission_user` (
   `user_id` int(10) UNSIGNED NOT NULL,
   `user_type` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `permission_user`
+--
+
+INSERT INTO `permission_user` (`permission_id`, `user_id`, `user_type`) VALUES
+(48, 7, 'App\\User'),
+(49, 7, 'App\\User'),
+(50, 7, 'App\\User'),
+(51, 7, 'App\\User'),
+(52, 7, 'App\\User'),
+(53, 7, 'App\\User'),
+(54, 7, 'App\\User'),
+(55, 7, 'App\\User'),
+(56, 7, 'App\\User'),
+(57, 7, 'App\\User'),
+(58, 7, 'App\\User'),
+(59, 7, 'App\\User'),
+(60, 7, 'App\\User'),
+(61, 7, 'App\\User'),
+(62, 7, 'App\\User'),
+(63, 7, 'App\\User'),
+(64, 7, 'App\\User'),
+(65, 7, 'App\\User'),
+(66, 7, 'App\\User'),
+(67, 7, 'App\\User'),
+(68, 7, 'App\\User'),
+(69, 7, 'App\\User'),
+(70, 7, 'App\\User'),
+(71, 7, 'App\\User'),
+(72, 7, 'App\\User'),
+(73, 7, 'App\\User'),
+(74, 7, 'App\\User'),
+(75, 7, 'App\\User'),
+(76, 7, 'App\\User'),
+(77, 7, 'App\\User'),
+(78, 7, 'App\\User'),
+(79, 7, 'App\\User'),
+(80, 7, 'App\\User'),
+(81, 7, 'App\\User'),
+(48, 11, 'App\\User'),
+(49, 11, 'App\\User'),
+(50, 11, 'App\\User'),
+(51, 11, 'App\\User'),
+(52, 11, 'App\\User'),
+(53, 11, 'App\\User'),
+(54, 11, 'App\\User'),
+(55, 11, 'App\\User'),
+(56, 11, 'App\\User'),
+(57, 11, 'App\\User'),
+(58, 11, 'App\\User'),
+(59, 11, 'App\\User'),
+(60, 11, 'App\\User'),
+(61, 11, 'App\\User'),
+(62, 11, 'App\\User'),
+(63, 11, 'App\\User'),
+(64, 11, 'App\\User'),
+(65, 11, 'App\\User'),
+(66, 11, 'App\\User'),
+(67, 11, 'App\\User'),
+(68, 11, 'App\\User'),
+(69, 11, 'App\\User'),
+(70, 11, 'App\\User'),
+(71, 11, 'App\\User'),
+(72, 11, 'App\\User'),
+(73, 11, 'App\\User'),
+(74, 11, 'App\\User'),
+(75, 11, 'App\\User'),
+(76, 11, 'App\\User'),
+(77, 11, 'App\\User'),
+(78, 11, 'App\\User'),
+(79, 11, 'App\\User'),
+(80, 11, 'App\\User'),
+(81, 11, 'App\\User');
 
 -- --------------------------------------------------------
 
@@ -360,7 +548,7 @@ CREATE TABLE `roles` (
 
 INSERT INTO `roles` (`id`, `name`, `display_name`, `description`, `created_at`, `updated_at`) VALUES
 (1, 'super_admin', 'Super Admin', 'Super Admin', '2020-04-13 18:56:16', '2020-04-13 18:56:16'),
-(2, 'admin', 'Admin', 'Admin', '2020-04-13 18:56:21', '2020-04-13 18:56:21');
+(3, 'admin', 'مشرف', 'تس تست ستس تست', '2020-12-05 09:13:55', '2020-12-05 09:30:36');
 
 -- --------------------------------------------------------
 
@@ -379,10 +567,8 @@ CREATE TABLE `role_user` (
 --
 
 INSERT INTO `role_user` (`role_id`, `user_id`, `user_type`) VALUES
-(2, 7, 'App\\User'),
-(2, 8, 'App\\User'),
-(2, 9, 'App\\User'),
-(2, 10, 'App\\User');
+(3, 7, 'App\\User'),
+(3, 11, 'App\\User');
 
 -- --------------------------------------------------------
 
@@ -464,7 +650,6 @@ INSERT INTO `settings` (`id`, `field_name`, `key`, `value`, `details`, `image`, 
 (31, 'كلمات دلاليه', 'key_words', NULL, NULL, NULL, 'text', 'seo', NULL, NULL),
 (32, 'وصف', 'description', NULL, NULL, NULL, 'text', 'seo', NULL, NULL),
 (33, 'رقم الهاتف', 'phone', '01275262482', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
-(37, 'رقم الهاتف', 'phone', NULL, NULL, NULL, 'text', 'contact', NULL, NULL),
 (38, 'رقم الهاتف الارض', 'home_line', '05022664', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
 (39, 'واتس اب', 'whatsapp', '01015960452', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
 (40, 'فاكس', 'fax', '123456', NULL, NULL, 'text', 'contact', NULL, '2020-12-02 08:39:37'),
@@ -475,7 +660,6 @@ INSERT INTO `settings` (`id`, `field_name`, `key`, `value`, `details`, `image`, 
 (45, 'لينكد إن', 'linked_id', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
 (46, 'تويتر', 'twitter', 'https://twitter.com/i/sms_login', NULL, NULL, 'text', 'social_media', NULL, '2020-12-02 08:48:35'),
 (47, 'جوجل بلس', 'google_plus', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
-(48, 'فيس بوك', 'facebook', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
 (49, 'انستجرام', 'instagram', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
 (50, 'بينتيريست', 'pinterest', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
 (51, 'RSS', 'rss', NULL, NULL, NULL, 'text', 'social_media', NULL, NULL),
@@ -492,7 +676,8 @@ INSERT INTO `settings` (`id`, `field_name`, `key`, `value`, `details`, `image`, 
 (62, 'عنوان الصفحة', 'about_page_title', NULL, NULL, NULL, 'text', 'about_page', NULL, NULL),
 (63, 'عنوان الصفحة', 'about_page_title_2', NULL, NULL, NULL, 'text', 'about_page', NULL, NULL),
 (64, 'نص الصفحة', 'about_page_desc', NULL, NULL, NULL, 'text', 'about_page', NULL, NULL),
-(65, 'الصورة', 'about_page_img', NULL, NULL, 'T4XKV3lX9rRlO82GrcTOvRCVbmqhTOdxISd188Wj.jpeg', 'image', 'about_page', NULL, '2020-12-03 12:44:07');
+(65, 'الصورة', 'about_page_img', NULL, NULL, 'T4XKV3lX9rRlO82GrcTOvRCVbmqhTOdxISd188Wj.jpeg', 'image', 'about_page', NULL, '2020-12-03 12:44:07'),
+(66, 'يوتيوب', 'youtube', 'https://www.youtube.com/', NULL, NULL, 'text', 'social_media', NULL, '2020-12-05 08:12:33');
 
 -- --------------------------------------------------------
 
@@ -544,7 +729,6 @@ CREATE TABLE `users` (
   `first_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `last_name` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `image` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'default.png',
   `email_verified_at` timestamp NULL DEFAULT NULL,
   `password` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `api_token` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
@@ -558,11 +742,11 @@ CREATE TABLE `users` (
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `image`, `email_verified_at`, `password`, `api_token`, `fcm_token`, `remember_token`, `created_at`, `updated_at`) VALUES
-(7, 'Backend', 'Dev', 'test@test.com', 'By3aVg45STBdNWXaZvumWAYovN1JLAsziqqL7ABd.jpeg', NULL, '$2y$10$zHxBlli8LvQmJKnmmNntXu0NWIVvxvk5hWfmwAlNU1KsjmhHJAJGy', NULL, NULL, 'Bw1P6sbaFtZt0TDjRVgnKM5jdWYmdK3NVXciGbMwA5b351jYxGV7nQR2hcny', '2020-06-16 21:49:58', '2020-10-26 14:16:12'),
-(8, 'test', 'tets', 'test2@test.com', 'default.png', NULL, '$2y$10$pcQ2j7gwpcatrW1FHRUh6OnyXHGv9T83dOwyLppZBm/XM0bzwXGvO', NULL, NULL, NULL, '2020-10-17 11:26:56', '2020-10-17 11:26:56'),
-(9, 'test', 'tets', 'test3@test.com', 'default.png', NULL, '$2y$10$FAlI4GNV9L2FKKsCwLhXoO0/oTG8mYQMj8C96K1tzFrmF3HPZFnKC', NULL, NULL, NULL, '2020-10-17 14:29:07', '2020-10-17 14:29:07'),
-(10, 'Sonya', 'Baldwin', 'cazycumujy@mailinator.com', 'default.png', NULL, '$2y$10$YTwwgqj.cGduW0x6ndI3ZuTcNL0slEimOn.ferazbD2R51Yyta06G', NULL, NULL, NULL, '2020-12-01 10:48:26', '2020-12-01 10:48:26');
+INSERT INTO `users` (`id`, `first_name`, `last_name`, `email`, `email_verified_at`, `password`, `api_token`, `fcm_token`, `remember_token`, `created_at`, `updated_at`) VALUES
+(7, 'Backend', 'Dev1', 'test@test.com', NULL, '$2y$10$zHxBlli8LvQmJKnmmNntXu0NWIVvxvk5hWfmwAlNU1KsjmhHJAJGy', NULL, NULL, 'Bw1P6sbaFtZt0TDjRVgnKM5jdWYmdK3NVXciGbMwA5b351jYxGV7nQR2hcny', '2020-06-16 21:49:58', '2020-12-05 08:03:53'),
+(8, 'test', 'tets', 'test2@test.com', NULL, '$2y$10$pcQ2j7gwpcatrW1FHRUh6OnyXHGv9T83dOwyLppZBm/XM0bzwXGvO', NULL, NULL, NULL, '2020-10-17 11:26:56', '2020-10-17 11:26:56'),
+(9, 'test', 'tets', 'test3@test.com', NULL, '$2y$10$FAlI4GNV9L2FKKsCwLhXoO0/oTG8mYQMj8C96K1tzFrmF3HPZFnKC', NULL, NULL, NULL, '2020-10-17 14:29:07', '2020-10-17 14:29:07'),
+(11, 'تست', 'تست', 'medoeid50@gmail.com', NULL, '$2y$10$s3/rkXKu0e6WRRpa8Wz7seumiUL8tXzWDZJdQ4siU6AqX.scjb.aG', NULL, NULL, NULL, '2020-12-05 07:42:03', '2020-12-05 07:54:30');
 
 -- --------------------------------------------------------
 
@@ -778,13 +962,13 @@ ALTER TABLE `migrations`
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `services`
@@ -802,7 +986,7 @@ ALTER TABLE `service_translations`
 -- AUTO_INCREMENT for table `settings`
 --
 ALTER TABLE `settings`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=66;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 
 --
 -- AUTO_INCREMENT for table `setting_translations`
@@ -814,7 +998,7 @@ ALTER TABLE `setting_translations`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `videos`
