@@ -32,6 +32,10 @@ Route::group(
                 Route::get('view_settings/about_page','SettingController@about_page')->name('view_settings.about');
 
 
+                Route::resource('users', 'UserController');
+
+                Route::get('edit_profile','UserController@edit_profile')->name('edit_profile');
+                Route::put('update_profile','UserController@update_profile')->name('update_profile');
 
                 Route::resource('services', 'ServiceController');
                 Route::resource('members' , 'TeamController');

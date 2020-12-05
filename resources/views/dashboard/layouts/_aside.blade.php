@@ -25,10 +25,18 @@
                             <span>معاينة الموقع</span>
                         </a>
                     </li>
+
                     <li>
-                        <a href="edit-account.php">
+                        <a href="{{ route('dashboard.edit_profile') }}">
                             <i class="material-icons">person</i>
                             <span>بيانات الأمان</span>
+                        </a>
+                    </li> 
+
+                    <li>
+                        <a href="{{ route('dashboard.edit_profile') }}">
+                            <i class="material-icons">people</i>
+                            <span>إدارة المشرفين</span>
                         </a>
                     </li> 
                     
